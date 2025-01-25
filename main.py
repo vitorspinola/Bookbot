@@ -56,11 +56,16 @@ def countWords(path, other_function_request):
 def countWordOccurence():
      return None
 
+
+def generateReport():
+     return None
+
 def main():
      print(countWords(path_to_frankeinstein, True))
+     readBook(path_to_frankeinstein, False)
 
  
- #   readBook(path=path_to_frankeinstein)                   worked!! #test for printing
+ #    readBook(path=path_to_frankeinstein)                   worked!! #test for printing
  #   print(readBook(path_to_frankeinstein, True))           worked!! #test for function 
  #   countWords(path_to_frankeinstein, False)               worked!! #test for printing
  #   print(countWords(path_to_frankeinstein, True))         worked!! #test for function
