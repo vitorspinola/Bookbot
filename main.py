@@ -2,11 +2,8 @@
 import os
 
 #initializing global variables
-path_to_frankeinstein = "./books/frankeinstein.txt"
+path_to_frankeinstein = "./books/frankeinstein.txt"         #new function would be to loop inside the local book repository, but then we would need to add the ./books folder to the repository removing it from ./.gitignore
 path_to_x = None
-
-
-
 
 def readBook(path, other_function_request):
      response = None
@@ -41,8 +38,7 @@ def countWords(path, other_function_request):
           content = readBook(path, True)
           
           if content != "":
-               words = content.replace(" ", "")
-               words = words.rsplit()
+               words = content.split()
                count_words = len(words)
                
                if other_function_request == True: 
@@ -61,15 +57,15 @@ def countWordOccurence():
      return None
 
 def main():
- 
- '''TESTING FUNCTIONS'''
+     print(countWords(path_to_frankeinstein, True))
+
  
  #   readBook(path=path_to_frankeinstein)                   worked!! #test for printing
  #   print(readBook(path_to_frankeinstein, True))           worked!! #test for function 
  #   countWords(path_to_frankeinstein, False)               worked!! #test for printing
  #   print(countWords(path_to_frankeinstein, True))         worked!! #test for function
  
- '''ACTUAL MAIN CONTENT'''
+
  
  
  
