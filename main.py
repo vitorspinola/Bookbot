@@ -105,7 +105,7 @@ def generateReport(path):
                print(f"Begin {path} report")
                print("*"*10)
                for index in range(len(list_of_keys)):
-                    if list_of_keys != ' ' and list_of_keys != '.' and list_of_keys != '#':
+                    if list_of_keys[index] != " " and list_of_keys[index] != '.' and list_of_keys[index] != "#":
                          print(f"The '{list_of_keys[index]}' character was found {list_of_values[index]} times")               
                print("*"*10)
                print(f"Ending {path} report")
