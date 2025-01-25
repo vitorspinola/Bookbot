@@ -92,14 +92,35 @@ def countLetterOccurence(path, other_function_request):
           return print(letters_dict)
           
 
-def generateReport():
-     return None
+def generateReport(path):
+     try:
+          countDict = countLetterOccurence(path, True)
+          ##output text
+          
+          list_of_keys = list(countDict.keys())
+          list_of_values = list(countDict.values())
+          
+          def print_report():
+               print("*"*10)
+               print(f"Begin {path} report")
+               print("*"*10)
+               for index in range(len(list_of_keys)):
+                    if list_of_keys != ' ' and list_of_keys != '.' and list_of_keys != '#':
+                         print(f"The '{list_of_keys[index]}' character was found {list_of_values[index]} times")               
+               print("*"*10)
+               print(f"Ending {path} report")
+               print("*"*10)
+          
+          
+     except Exception as e:
+          print(f"An error occurred: {e}")
+     return print_report()
 
 def main():
      # print(countWords(path_to_frankeinstein, True))
      # readBook(path_to_frankeinstein, False)
-     countLetterOccurence(path_to_frankeinstein, False)
-     
+     # countLetterOccurence(path_to_frankeinstein, False)
+     generateReport(path_to_frankeinstein)
  #    readBook(path=path_to_frankeinstein)                   worked!! #test for printing
  #   print(readBook(path_to_frankeinstein, True))           worked!! #test for function 
  #   countWords(path_to_frankeinstein, False)               worked!! #test for printing
