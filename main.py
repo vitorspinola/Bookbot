@@ -53,18 +53,53 @@ def countWords(path, other_function_request):
           print(e)
      return response
      
-def countWordOccurence():
-     return None
-
+def countLetterOccurence(path, other_function_request):
+     try:
+          content = readBook(path, True)
+          whitespaces = 0
+          for i in content:
+               if i == " ":
+                    whitespaces += 1
+               else:
+                    pass
+          letters_dict = {' ' : whitespaces }
+          raw  = content.lower().split()
+          raw_content = []
+          for i in raw:
+               for j in i:
+                    raw_content.append(j)
+               
+          unique_letters = list(set([i for i in raw_content]))
+          if len(unique_letters) == 1:
+               letters_dict =  {unique_letters[0]: 1}
+          elif len(unique_letters) == 0:
+               letters_dict = {}
+               raise Warning("No unique characters were found in this book, returning empty dictionary")
+          else:
+               for unique_letter in unique_letters:
+                    occurences_count = 0
+                    for letter in raw_content:
+                         if letter == unique_letter:
+                              occurences_count += 1
+                         else:
+                              pass
+                    letters_dict.update({unique_letter: occurences_count})
+     except Exception as e:
+          print(f"An error Occurred: {e}")
+     if other_function_request is True:
+          return letters_dict
+     else:
+          return print(letters_dict)
+          
 
 def generateReport():
      return None
 
 def main():
-     print(countWords(path_to_frankeinstein, True))
-     readBook(path_to_frankeinstein, False)
-
- 
+     # print(countWords(path_to_frankeinstein, True))
+     # readBook(path_to_frankeinstein, False)
+     countLetterOccurence(path_to_frankeinstein, False)
+     
  #    readBook(path=path_to_frankeinstein)                   worked!! #test for printing
  #   print(readBook(path_to_frankeinstein, True))           worked!! #test for function 
  #   countWords(path_to_frankeinstein, False)               worked!! #test for printing
