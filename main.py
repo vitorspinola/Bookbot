@@ -117,14 +117,40 @@ def generateReport(path):
      return print_report()
 
 def main():
-     # print(countWords(path_to_frankeinstein, True))
-     # readBook(path_to_frankeinstein, False)
-     # countLetterOccurence(path_to_frankeinstein, False)
-     generateReport(path_to_frankeinstein)
- #    readBook(path=path_to_frankeinstein)                   worked!! #test for printing
- #   print(readBook(path_to_frankeinstein, True))           worked!! #test for function 
- #   countWords(path_to_frankeinstein, False)               worked!! #test for printing
- #   print(countWords(path_to_frankeinstein, True))         worked!! #test for function
+     while True:
+          try:
+               choice = -1
+               while choice not in range (0,5):
+                    print("_________________________________")
+                    print("1 *** read frankeinstein")
+                    print("2 *** get number of words in book")
+                    print("3 *** get a report about the book")
+                    print("4 *** exit program !)")
+                    print("_________________________________")
+                    print(" ")
+                    choice = int(input("insert your choice here: "))        
+                    if choice not in range(0,5):
+                         print("please choose a number available in the current menu...")
+                    else:
+                         if choice == 1:
+                              readBook(path_to_frankeinstein, False)
+                              choice = -1
+                         elif choice == 2:
+                              countWords(path_to_frankeinstein, False)
+                              choice = -1
+                         elif choice == 3:
+                              generateReport(path_to_frankeinstein)
+                              choice = -1
+                         else:
+                              print("Exiting program, thanks for testing")
+                              exit()
+          except Exception as e:
+               print(f"An exception occurred: {e}")
+                         
+          
+          return 0
+     
+
  
 
  
